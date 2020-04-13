@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public AudioClip Click;
-
+    public int playerScore = 0;
     public int PlayerLives = 3;
 
     void Awake()
