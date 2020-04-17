@@ -45,4 +45,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("You Quit...");
         AudioSource.PlayClipAtPoint(Click, transform.position);
     }
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 2);
+    }
 }
