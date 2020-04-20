@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public AudioClip Click;
     public int playerScore = 0;
     public int PlayerLives = 3;
+    public GameObject playerPrefab;
 
     void Awake()
     {
@@ -31,7 +32,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            playerPrefab.SetActive(!playerPrefab.activeInHierarchy);
+            Debug.Log("P was pressed");//Shows in log when button is pressed
+        }
+
     }
     public void StartGame()
     {
@@ -48,5 +54,16 @@ public class GameManager : MonoBehaviour
     public void LoadNextScene()
     {
         SceneManager.LoadScene(sceneBuildIndex: 2);
+    }
+    public void Respawn()
+    {
+        if (PlayerLives > 0)
+        {
+            Instantiate(playerPrefab);
+        }
+        else if (PlayerLives == 0)
+        {
+            SceneManager.LoadScene(sceneBuildIndex: 4);
+        }
     }
 }

@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     private Transform tf;
     private Rigidbody2D rb2d;
     private SpriteRenderer sr;
+    public bool isGrounded;
+    public Transform GroundPoint;
 
     public float speed = 5.0f;
     public float jumpForce = 200.0f;
@@ -33,10 +35,20 @@ public class Player : MonoBehaviour
         {
             sr.flipX = true;
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow))//Jumping 
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)//Jumping 
         {
             Debug.Log("Jumping");
             rb2d.AddForce(Vector2.up * jumpForce);
+        }
+        //checking if player is on the ground
+        RaycastHit2D hitinfo = Physics2D.Raycast(GroundPoint.position, Vector2.down, 1f);
+        if (hitinfo.collider != null)
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
         }
     }
 }
