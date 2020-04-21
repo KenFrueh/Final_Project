@@ -6,10 +6,11 @@ public class EnterLevel : MonoBehaviour
 {
     public void OnTriggerEnter2D(Collider2D other)
     {
-        //Load next level if enter trigger
-        if (other.gameObject.tag == "Player")
+        if(other.gameObject.name == "Player")
         {
             GameManager.instance.LoadNextScene();
+            Debug.Log("Is collided");
         }
+        
     }
 }

@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    //Game object variables
     private Transform tf;
     private Rigidbody2D rb2d;
     private SpriteRenderer sr;
     public bool isGrounded;
     public Transform GroundPoint;
-
+    //Movement variables
     public float speed = 5.0f;
     public float jumpForce = 200.0f;
+
 
 
     // Start is called before the first frame update

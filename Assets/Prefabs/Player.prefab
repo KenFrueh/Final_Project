@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 268505963107778358}
   - component: {fileID: 268505963107778359}
   - component: {fileID: 268505963107778377}
-  m_Layer: 0
+  - component: {fileID: 6032340398485943410}
+  m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,12 +32,13 @@ Transform:
   m_LocalPosition: {x: -5.15, y: -3.44, z: 0}
   m_LocalScale: {x: 15, y: 15, z: 1}
   m_Children:
-  - {fileID: 2449986825065204285}
-  - {fileID: 7153046985874618365}
-  - {fileID: 3619443351888348353}
-  - {fileID: 1043910554940258189}
   - {fileID: 1636371046277014560}
+  - {fileID: 1043910554940258189}
+  - {fileID: 3619443351888348353}
+  - {fileID: 7153046985874618365}
+  - {fileID: 2449986825065204285}
   - {fileID: 2068974930252454838}
+  - {fileID: 1016133456054254630}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -103,7 +105,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0012137368, y: 0.0006765947}
+  m_Offset: {x: 0.0072805732, y: 0.009166475}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -114,7 +116,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1600581, y: 0.14279051}
+  m_Size: {x: 0.19160837, y: 0.16462171}
   m_EdgeRadius: 0
 --- !u!50 &268505963107778359
 Rigidbody2D:
@@ -153,6 +155,25 @@ MonoBehaviour:
   GroundPoint: {fileID: 2068974930252454838}
   speed: 5
   jumpForce: 200
+--- !u!114 &6032340398485943410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268505963107778354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a51adc2a8cec6e54c932e7533ed55202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startAttack: 0.3
+  AttackPos: {fileID: 1016133456054254630}
+  EnemiesL:
+    serializedVersion: 2
+    m_Bits: 256
+  rangeOfAttack: 2
+  damageDone: 1
 --- !u!1 &1606329850454825253
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2068974930252454838}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundPoint
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -177,8 +198,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606329850454825253}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0067000072, y: -0.084, z: -0.99999994}
-  m_LocalScale: {x: 0.06666667, y: 0.06666667, z: 1}
+  m_LocalPosition: {x: 0.0067000072, y: -0.085, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 268505963107778356}
   m_RootOrder: 5
@@ -193,9 +214,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1636371046277014560}
   - component: {fileID: 438495728112488027}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: roguelikeChar_transparent_2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,7 +233,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 268505963107778356}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &438495728112488027
 SpriteRenderer:
@@ -274,9 +295,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3619443351888348353}
   - component: {fileID: 9000022069292917578}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: roguelikeChar_transparent_72
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -345,6 +366,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &4489683488305182200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1016133456054254630}
+  m_Layer: 8
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1016133456054254630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4489683488305182200}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.223, y: 0.002, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 268505963107778356}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5162720551128808309
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,9 +406,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7153046985874618365}
   - component: {fileID: 2604372083057520382}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: roguelikeChar_transparent_353
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -374,7 +425,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 268505963107778356}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2604372083057520382
 SpriteRenderer:
@@ -436,9 +487,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2449986825065204285}
   - component: {fileID: 6101798112116325857}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: roguelikeChar_transparent_344
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -455,7 +506,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 268505963107778356}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6101798112116325857
 SpriteRenderer:
@@ -517,9 +568,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1043910554940258189}
   - component: {fileID: 7771464185483127811}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: roguelikeChar_transparent_191
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -536,7 +587,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 268505963107778356}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7771464185483127811
 SpriteRenderer:
