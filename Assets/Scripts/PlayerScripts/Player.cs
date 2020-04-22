@@ -14,8 +14,6 @@ public class Player : MonoBehaviour
     public float speed = 5.0f;
     public float jumpForce = 200.0f;
 
-
-
     // Start is called before the first frame update
     void Start()
     {//Getting variables
@@ -52,5 +50,30 @@ public class Player : MonoBehaviour
         {
             isGrounded = false;
         }
+
     }
+    //Killing the player
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Boss")
+        {
+            Destroy(this.gameObject);
+            Debug.Log("Player died");
+        }
+    }
+    void OnDestroy()
+    {
+        //Losing a life on destroy
+        GameManager.instance.PlayerLives -= 1;
+        if (GameManager.instance.PlayerLives > 0)
+        {
+            GameManager.instance.Respawn();
+        }
+        else if (GameManager.instance.PlayerLives == 0)
+        {//Display Game over
+            GameManager.instance.GameOver();
+            Debug.Log("Game Over");
+        }
+    }
+
 }

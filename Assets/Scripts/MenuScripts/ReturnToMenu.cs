@@ -11,5 +11,6 @@ public class ReturnToMenu : MonoBehaviour
     {
         SceneManager.LoadScene(sceneBuildIndex: 0);
         AudioSource.PlayClipAtPoint(Click, transform.position);
+        GameManager.instance.PlayerLives = 3;
     }
 }

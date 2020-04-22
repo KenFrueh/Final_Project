@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 
@@ -10,9 +11,14 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public AudioClip Click;
     public int playerScore = 0;
-    public int PlayerLives = 3;
+    public int PlayerLives = 2;
     public GameObject playerPrefab;
+    public GameObject Player;
 
+
+    void Start()
+    {
+    }
     void Awake()
     {
         if (instance == null)
@@ -29,41 +35,39 @@ public class GameManager : MonoBehaviour
 
 
     }
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            playerPrefab.SetActive(!playerPrefab.activeInHierarchy);
-            Debug.Log("P was pressed");//Shows in log when button is pressed
-        }
 
     }
-    public void StartGame()
+    public void StartGame()//The play button in the menu
     {
         SceneManager.LoadScene(sceneBuildIndex: 1);
         Debug.Log("Hit Play!");
         AudioSource.PlayClipAtPoint(Click, transform.position);
     }
-    public void QuitGame()
+    public void QuitGame()//Quitting the game
     {
         Application.Quit();
         Debug.Log("You Quit...");
         AudioSource.PlayClipAtPoint(Click, transform.position);
     }
-    public void LoadNextScene()
+    public void LoadNextScene()//Getting a new scene
     {
         SceneManager.LoadScene(sceneBuildIndex: 2);
     }
-    public void Respawn()
+    public void Respawn()//Respawning the player
     {
-        if (PlayerLives > 0)
-        {
-            Instantiate(playerPrefab);
-        }
-        else if (PlayerLives == 0)
-        {
-            SceneManager.LoadScene(sceneBuildIndex: 4);
-        }
+        Player = Instantiate(playerPrefab);
     }
+    public void Victory()//Victory screen
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 3);
+    }
+    public void GameOver()//Game over screen
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 4);
+    }
+
 }

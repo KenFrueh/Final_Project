@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Boss : MonoBehaviour
 {
     public int health;
     public float speed = 3f;
@@ -27,5 +27,8 @@ public class Enemy : MonoBehaviour
         health -= damage;
         Debug.Log("Takes damage");
     }
-
+    public void OnDestroy()
+    {
+        GameManager.instance.Victory();
+    }
 }
