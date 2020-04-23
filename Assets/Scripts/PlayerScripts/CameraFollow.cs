@@ -6,6 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
     public Transform playerTransform;
 
+
     public float offset;//Keep at 6
     // Start is called before the first frame update
     void Start()

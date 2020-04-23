@@ -55,25 +55,17 @@ public class Player : MonoBehaviour
     //Killing the player
     public void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Boss")
+        if(other.gameObject.tag == "Enemy")
         {
             Destroy(this.gameObject);
             Debug.Log("Player died");
+
         }
     }
     void OnDestroy()
     {
-        //Losing a life on destroy
         GameManager.instance.PlayerLives -= 1;
-        if (GameManager.instance.PlayerLives > 0)
-        {
-            GameManager.instance.Respawn();
-        }
-        else if (GameManager.instance.PlayerLives == 0)
-        {//Display Game over
-            GameManager.instance.GameOver();
-            Debug.Log("Game Over");
-        }
+        GameManager.instance.Respawn();
     }
 
 }

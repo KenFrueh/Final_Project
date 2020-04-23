@@ -16,8 +16,10 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
 
 
+
     void Start()
     {
+        playerPrefab = Player;
     }
     void Awake()
     {
@@ -59,15 +61,23 @@ public class GameManager : MonoBehaviour
     }
     public void Respawn()//Respawning the player
     {
-        Player = Instantiate(playerPrefab);
+        if (PlayerLives > 0)
+        {
+            Instantiate(playerPrefab);
+        }
+        else if (PlayerLives == 0)
+        {
+            GameOver();
+        }
     }
     public void Victory()//Victory screen
     {
         SceneManager.LoadScene(sceneBuildIndex: 3);
+        Debug.Log("Victory");
     }
     public void GameOver()//Game over screen
-    {
+    { 
         SceneManager.LoadScene(sceneBuildIndex: 4);
+        Debug.Log("Game Over");
     }
-
 }

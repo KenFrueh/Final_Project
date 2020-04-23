@@ -688,7 +688,8 @@ MonoBehaviour:
   PlayerLives: 3
   playerPrefab: {fileID: 268505963107778354, guid: f291f29a35b91384b90d1458978f6815,
     type: 3}
-  Player: {fileID: 0}
+  Player: {fileID: 268505963107778354, guid: f291f29a35b91384b90d1458978f6815, type: 3}
+  tf: {fileID: 268505963107778356, guid: f291f29a35b91384b90d1458978f6815, type: 3}
 --- !u!4 &729366791
 Transform:
   m_ObjectHideFlags: 0

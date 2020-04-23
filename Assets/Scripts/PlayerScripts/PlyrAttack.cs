@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlyrAttack : MonoBehaviour
 {
     //Attacking variables
-    public float btwAttack;
+    private float btwAttack;
     public float startAttack;
     public Transform AttackPos;
     public LayerMask EnemiesL;
@@ -15,25 +15,20 @@ public class PlyrAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Attacking
-        if (btwAttack <= 0)
-        {
-            if (Input.GetKey(KeyCode.Space))
-            {//Hitting the enemy
-                Debug.Log("I attack!");
-                Collider2D[] enemies = Physics2D.OverlapCircleAll(AttackPos.position, rangeOfAttack, EnemiesL);
-                for (int i = 0; i < enemies.Length; i++)
-                {
-                    Destroy(enemies[i].gameObject);
-                }
-                btwAttack = startAttack;
-
-            }
-            else
-            {
-                btwAttack -= Time.deltaTime;
-            }
+        if (Input.GetKey(KeyCode.Space))
+        {//Hitting the enemy
+            Attack();
         }
+    }
+    public void Attack()
+    {
+        Debug.Log("I attack!");
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(AttackPos.position, rangeOfAttack, EnemiesL);
+        foreach (Collider2D enemy in enemies)
+        {
+            enemy.GetComponent<Enemy>().TakeDamage(damageDone);
+        }
+
     }
     void OnDrawGizmosSelected()//Drawing a circle as point of reference of attack area
     {

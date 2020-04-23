@@ -167,8 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a51adc2a8cec6e54c932e7533ed55202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btwAttack: 0.12
-  startAttack: 0.02
+  startAttack: 0
   AttackPos: {fileID: 1016133456054254630}
   EnemiesL:
     serializedVersion: 2
@@ -186,7 +185,7 @@ GameObject:
   - component: {fileID: 2068974930252454838}
   m_Layer: 0
   m_Name: GroundPoint
-  m_TagString: Untagged
+  m_TagString: Feet
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

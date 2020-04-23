@@ -10,9 +10,8 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        DontDestroyOnLoad(gameObject);
     }
-
     // Update is called once per frame
     void Update()
     {//Removing health from enemy
@@ -26,6 +25,11 @@ public class Enemy : MonoBehaviour
     {
         health -= damage;
         Debug.Log("Takes damage");
+    }
+    void OnDestroy()
+    {
+        GameManager.instance.Victory();
+
     }
 
 }
